@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def detalle(request):
+	context = {}
+	return render(request, "productos/detalle.html", context)
