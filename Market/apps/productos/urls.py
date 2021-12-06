@@ -9,7 +9,7 @@ urlpatterns = [
 	
 	# Admin
 	path("Admin/Listar/", views.ListarAdmin.as_view(), name="admin_listar"),
-	path("Admin/Nuevo/", views.NuevoAdmin.as_view(), name="admin_nuevo")
-
+	path("Admin/Nuevo/", views.NuevoAdmin.as_view(), name="admin_nuevo"),
+	path("Admin/Editar/<int:pk>/", views.EditarAdmin.as_view(), name="admin_editar"),
 
 ]
