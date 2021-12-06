@@ -2,6 +2,8 @@
 
 {% block contenido %}
 	<form method="POST">{% csrf_token %}
+		{% include "includes/form_errors.html" %}
+		
 		{{form.as_p}}
 
 		<div class="row">
