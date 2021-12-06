@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 LOGIN_URL = reverse_lazy("login")
 LOGIN_REDIRECT_URL = reverse_lazy("inicio")
 
+AUTH_USER_MODEL = "usuarios.Usuario"
 
 # Application definition
 
@@ -30,7 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.productos'
+    'apps.productos',
+    'apps.usuarios'
 ]
 
 MIDDLEWARE = [
