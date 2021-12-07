@@ -18,6 +18,7 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 	template_name="productos/admin/listar.html"
 	model = Producto
 	context_object_name="productos"
+	# permisos_requeridos = ["add_users"]
 
 	
 	def get_queryset(self):
