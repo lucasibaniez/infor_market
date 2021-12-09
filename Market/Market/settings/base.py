@@ -66,19 +66,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Market.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "infor_market",
-        "USER": "postgres",
-        "PASSWORD": "a",
-        "HOST": "localhost",
-        "PORT": "5432"
-    }
-}
 
 
 # Password validation
