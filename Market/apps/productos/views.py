@@ -34,6 +34,11 @@ class NuevoAdmin(LoginRequiredMixin, AdminRequiredMixins, CreateView):
 	def get_success_url(self, **kwargs):
 		return reverse_lazy("productos:admin_listar")
 
+	def form_valid(self, form):
+		f = form.save(commit=False)
+		f.usuario_id = self.request.user.id
+		return super(NuevoAdmin, self).form_valid(form)
+
 class EditarAdmin(UpdateView):
 	template_name = "productos/admin/editar.html"
 	model = Producto

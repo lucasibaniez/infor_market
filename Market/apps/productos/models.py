@@ -1,5 +1,7 @@
 from django.db import models
 
+from apps.usuarios.models import Usuario
+
 class Categoria(models.Model):
 	nombre = models.CharField(max_length=255)
 
@@ -17,6 +19,8 @@ class Producto(models.Model):
 	# categorias = models.ManyToManyField(Categoria)
 
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+
+	usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
 
 	imagen = models.ImageField(upload_to="productos", null=True)
 
