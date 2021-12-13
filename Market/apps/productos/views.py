@@ -24,7 +24,16 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 	def get_queryset(self):
 		# self.request
 		return Producto.objects.all().order_by("id")
+
+
+class MisProductos(LoginRequiredMixin, AdminRequiredMixins, ListView):
+	template_name="productos/admin/listar.html"
+	model = Producto
+	context_object_name="productos"
 	
+	def get_queryset(self):
+		# self.request
+		return Producto.objects.filter(usuario__id=self.request.user.id)# .order_by("id")	
 
 class NuevoAdmin(LoginRequiredMixin, AdminRequiredMixins, CreateView):
 	template_name = "productos/admin/nuevo.html"

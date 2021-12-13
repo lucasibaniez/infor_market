@@ -12,4 +12,6 @@ urlpatterns = [
 	path("Admin/Nuevo/", views.NuevoAdmin.as_view(), name="admin_nuevo"),
 	path("Admin/Editar/<int:pk>/", views.EditarAdmin.as_view(), name="admin_editar"),
 
+	path("MisProductos/", views.MisProductos.as_view(), name="mis_productos")
+
 ]
