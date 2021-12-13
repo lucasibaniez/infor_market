@@ -1,2 +1,3 @@
 *.pyc
 Market/Market/settings/local.py
+Market/media/productos/*
