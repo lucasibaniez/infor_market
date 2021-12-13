@@ -18,7 +18,7 @@ class Producto(models.Model):
 
 	categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
 
-	
+	imagen = models.ImageField(upload_to="productos", null=True)
 
 	class Meta:
 		db_table="productos"

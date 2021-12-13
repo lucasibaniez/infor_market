@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 
 {% block contenido %}
-	<form method="POST">{% csrf_token %}
+	<form method="POST" enctype="multipart/form-data">{% csrf_token %}
 		{% include "includes/form_errors.html" %}
 		
 		{{form.as_p}}

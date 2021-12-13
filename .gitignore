@@ -1,2 +1,2 @@
 *.pyc
-Market/settings/local.py
+Market/Market/settings/local.py
