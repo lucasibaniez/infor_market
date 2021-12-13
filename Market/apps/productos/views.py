@@ -19,6 +19,7 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 	model = Producto
 	context_object_name="productos"
 	# permisos_requeridos = ["add_users"]
+	paginate_by = 2
 
 	def get_context_data(self, **kwargs):
 		context = super(ListarAdmin, self).get_context_data(**kwargs)
