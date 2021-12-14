@@ -1,18 +1,20 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts           import render
-from django.urls                import reverse_lazy
-from django.views.generic       import ListView, CreateView 
-from django.views.generic.edit  import UpdateView
+from django.contrib.auth.mixins  import LoginRequiredMixin
+from django.shortcuts            import render
+from django.urls                 import reverse_lazy
+from django.views.generic        import ListView, CreateView 
+from django.views.generic.detail import DetailView
+from django.views.generic.edit   import UpdateView
 
 from apps.core.mixins import AdminRequiredMixins
 
 from .forms  import ProductoForm
 from .models import Producto
 
+"""
 def detalle(request):
 	context = {}
 	return render(request, "productos/detalle.html", context)
-
+"""
 
 class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 	template_name="productos/admin/listar.html"
@@ -60,9 +62,12 @@ class EditarAdmin(UpdateView):
 	template_name = "productos/admin/editar.html"
 	model = Producto
 	form_class = ProductoForm
+	context_object_name="producto"
 
 	def get_success_url(self, **kwargs):
 		return reverse_lazy("productos:admin_listar") 
 
-# MRO
+class Detalle(DetailView):
+	template_name = "productos/detalle.html"
+	model = Producto
 	

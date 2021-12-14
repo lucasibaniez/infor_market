@@ -14,6 +14,7 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
 	nombre = models.CharField(max_length=255)
+	descripcion = models.CharField(max_length=255, default="")
 	precio = models.DecimalField(max_digits=9, decimal_places=2)
 
 	# categorias = models.ManyToManyField(Categoria)
