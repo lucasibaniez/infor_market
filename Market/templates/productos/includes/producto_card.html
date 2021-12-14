@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="col">
+		<div class="card shadow-sm">
+			{% if p.imagen %}
+				<img src="{{p.imagen.url}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+			{% else %}
+				<img src="{% static 'images/default/producto.png' %}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+			{% endif %}
+			
+		
+
+		<div class="card-body">
+  			<p class="card-text">
+  				{{p.nombre}}
+  				<!--
+  				{% for c in p.categorias.all %}
+  				 	<span class="badge rounded-pill bg-primary">{{c.nombre}}</span>
+  				{% endfor %} 
+  				-->
+  				<span class="badge rounded-pill bg-primary">{{p.categoria.nombre}}</span>
+  			</p>
+  			<div class="d-flex justify-content-between align-items-center">
+        		<div class="btn-group">
+          			<!--<button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+          			<a class="btn btn-sm btn-outline-secondary" href="{% url 'productos:detalle' p.id %}">Ver mas</a>
+
+          			{% include "productos/includes/show_estado.html" %}
+
+          			<a class="btn btn-primary" href="{% url 'favoritos:add_favorito' p.id %}" role="button">
+          				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+						  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+						</svg>
+          			</a>
+        		</div>
+        		<!--<small class="text-muted">9 mins</small>-->
+  			</div>
+		</div>
+		</div>
+</div>

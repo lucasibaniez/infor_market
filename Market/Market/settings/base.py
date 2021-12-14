@@ -24,16 +24,25 @@ AUTH_USER_MODEL = "usuarios.Usuario"
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.productos',
-    'apps.usuarios'
 ]
+
+LOCAL_APPS = [
+    'apps.productos',
+    'apps.usuarios',
+    'apps.favoritos'
+]
+
+TERCERO_APPS = [
+]
+
+INSTALLED_APPS = DJANGO_APPS+LOCAL_APPS+TERCERO_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

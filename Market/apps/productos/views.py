@@ -29,7 +29,7 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 		return context
 
 	def get_queryset(self):
-		busqueda_nombre = self.request.GET.get("nombre_producto", "")
+		busqueda_nombre = self.request.GET.get("nombre_producto", "") # ["nombre_producto"]
 		query = Producto.objects.all().order_by("nombre")
 		if len(busqueda_nombre) > 0:
 			query = query.filter(nombre__icontains=busqueda_nombre)

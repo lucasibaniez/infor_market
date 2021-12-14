@@ -16,6 +16,7 @@ urlpatterns = [
 
     # Includes
     path("Producto/", include('apps.productos.urls')),
-    path("Usuario/", include('apps.usuarios.urls'))
+    path("Usuario/", include('apps.usuarios.urls')),
+    path("Favoritos/", include('apps.favoritos.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
