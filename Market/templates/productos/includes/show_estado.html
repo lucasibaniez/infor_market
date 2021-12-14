@@ -1,0 +1,5 @@
+{% if p.estado == 1 %}
+	<span class="badge bg-success">{{p.get_estado_display}}</span>
+{% else %}
+	<span class="badge bg-warning text-dark">{{p.get_estado_display}}</span>
+{% endif %}

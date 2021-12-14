@@ -21,7 +21,10 @@
 		    </div>
 
 		    <div class="col-md-2">
-		    	<h1 style="padding:25px;"><span class="badge bg-secondary">$ {{producto.precio}}</span></h1>
+		    	<h1 style="padding:25px;">
+		    		<span class="badge bg-secondary">$ {{producto.precio}}</span><br><br>
+		    		{% include "productos/includes/show_estado.html" with p=producto %}
+		    	</h1>
 		    </div>
 	  	</div>
 	</div>
