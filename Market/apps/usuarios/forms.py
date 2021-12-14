@@ -16,9 +16,11 @@ class UsuarioForm(UserCreationForm):
 		model = Usuario
 		fields = ["username", "first_name", "last_name", "email", "dni"]
 
+	"""
 	def clean_username(self):
 		username = self.cleaned_data["username"]
 
 		if "123" not in username:
 			raise ValidationError("El nombre de usuario debe incluir la cadena 123") 
 		return username
+	"""

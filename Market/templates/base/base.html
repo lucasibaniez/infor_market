@@ -49,7 +49,7 @@
 								        <li class="nav-item">
 								        	<a class="nav-link" href="#">Catalogo</a>
 								        </li>
-								        {% if user.is_authenticated %}
+								        {% if user.is_authenticated and user.es_administrador %}
 									        <li class="nav-item">
 									        	<a class="nav-link" href="{% url 'productos:admin_listar' %}">Productos</a>
 									        </li>
