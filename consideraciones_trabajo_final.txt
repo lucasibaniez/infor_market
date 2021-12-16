@@ -1,0 +1,31 @@
+Objetivo: Desarrollar un sitio de Blog con la tematica de las ODS
+
+Vamos a tener "3 perfiles":
+	- Usuarios que solamente van a poder visualizar los posts (USUARIOS QUE NO ESTAN REGISTRADOS).
+	
+	- Usuarios que ademas de visualizar los posts, van a poder crear publicaciones.
+		- Crear una publicacion, eliminarla, editarla
+	
+	- Usuarios que son Administradores
+		- Gestionar completamente el contenido del sitio 
+			- Gestionar todas las publicaciones
+				- Ver todas las publicaciones, eliminarlas,editar el contenido.
+			- Gestionar las categorias
+
+			- OPCIONAL (No obligatorio):
+				- Gestionar usuarios
+					- Ver todos los usuarios registrador, editar informacion (asignarle otro, por ejemplo asignarle la posibilidad de publicar)
+
+======================================================================================================================
+Nota: Los permisos de publicacion (convertir un usuario como publicador, o admin), se lo va a realizar desde el admin de django.
+======================================================================================================================
+
+Solo los usuarios registrados (independientemente del ROL), va a poder comentar los posts.
+
+Una publicacion que podra ser publica, o estar como un "borrador".
+
+En caso de que la publicacion se encuentre como borrador, no podra ser visible por los demas usuarios que visualizan los posts.
+
+Los usuarios podran registrarse y autenticarse (y desloguearse) dentro del sitio.
+
+Tambien debe permitirse filtar posts de acuerdo a los criterios que considere necesario
