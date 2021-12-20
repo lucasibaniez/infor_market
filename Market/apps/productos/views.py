@@ -7,7 +7,7 @@ from django.views.generic.edit   import UpdateView
 
 from apps.core.mixins import AdminRequiredMixins
 
-from .forms  import ProductoForm
+from .forms  import ProductoForm, ProductoFilterForm
 from .models import Producto
 
 """
@@ -25,14 +25,29 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super(ListarAdmin, self).get_context_data(**kwargs)
-		context["nombre_buscado"] = self.request.GET.get("nombre_producto", "")
+		# context["nombre_buscado"] = self.request.GET.get("nombre_producto", "")
+		
+		busqueda_nombre = self.request.GET.get("nombre", None)
+		busqueda_categoria = self.request.GET.get("categorias", None)
+
+		context["form_filtro"] = ProductoFilterForm(initial={'nombre': busqueda_nombre, "categoria":int(busqueda_categoria)})
 		return context
 
 	def get_queryset(self):
-		busqueda_nombre = self.request.GET.get("nombre_producto", "") # ["nombre_producto"]
+		# busqueda_nombre = self.request.GET.get("nombre_producto", "") # ["nombre_producto"]
+		busqueda_nombre = self.request.GET.get("nombre", None)
+		busqueda_categoria = self.request.GET.get("categorias", None)
+
+
 		query = Producto.objects.all().order_by("nombre")
-		if len(busqueda_nombre) > 0:
+		if busqueda_nombre is not None and busqueda_nombre!="":
 			query = query.filter(nombre__icontains=busqueda_nombre)
+
+		if busqueda_categoria is not None and busqueda_categoria!="":
+			query = query.filter(categoria=busqueda_categoria)
+		#if len(busqueda_nombre) > 0:
+		#	query = query.filter(nombre__icontains=busqueda_nombre)
+		
 		return query
 
 

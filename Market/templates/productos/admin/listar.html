@@ -1,6 +1,7 @@
 {% extends "base/base.html" %}
 
 {% block contenido %}
+	<!--
 	<form class="form-inline my-2 my-lg-0" style="padding:50px;" method="GET">
 		<div class="row">
 			<div class="col-md-10">
@@ -11,7 +12,11 @@
       		</div>
       	</div>
     </form>
-
+	-->
+	<form class="form-inline my-2 my-lg-0" style="padding:50px;" method="GET">
+		{{form_filtro.as_p}}
+		<button class="btn btn-sm btn-outline-secondary" type="submit">Buscar</button>
+	</form>
 
 	<div class="row" style="padding:10px;">
 		<div class="col">
@@ -24,6 +29,7 @@
 		<thead>
 			<th scope="col">Id</th>
 			<th scope="col">Nombre</th>
+			<th scope="col">Categoria</th>
 			<th>Precio</th>
 			<th scope="col">Acciones</th>
 		</thead>
@@ -32,6 +38,7 @@
 				<tr>
 			      <th scope="row">{{p.id}}</th>
 			      <td>{{p.nombre}}</td>
+			      <td>{{p.categoria.nombre}}</td>
 			      <td>$ {{p.precio}}</td>
 			      <td>
 			      	<a href="">Ver</a>
