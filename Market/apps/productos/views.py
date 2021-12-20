@@ -27,10 +27,16 @@ class ListarAdmin(LoginRequiredMixin, AdminRequiredMixins, ListView):
 		context = super(ListarAdmin, self).get_context_data(**kwargs)
 		# context["nombre_buscado"] = self.request.GET.get("nombre_producto", "")
 		
-		busqueda_nombre = self.request.GET.get("nombre", None)
-		busqueda_categoria = self.request.GET.get("categorias", None)
+		busqueda_nombre = self.request.GET.get("nombre", "")
+		busqueda_categoria = self.request.GET.get("categorias")
+		initial_data = {}
+		if busqueda_nombre is not None and busqueda_nombre!="":
+			initial_data["nombre"] = busqueda_nombre
 
-		context["form_filtro"] = ProductoFilterForm(initial={'nombre': busqueda_nombre, "categoria":int(busqueda_categoria)})
+		if busqueda_categoria is not None and busqueda_categoria!="":
+			initial_data["categorias"] = busqueda_categoria
+
+		context["form_filtro"] = ProductoFilterForm(initial=initial_data)
 		return context
 
 	def get_queryset(self):

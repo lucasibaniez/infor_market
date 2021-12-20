@@ -1,6 +1,7 @@
 {% extends "base/base.html" %}
 
 {% load static %}
+{% load productos_tags %}
 
 {% block contenido %}
 	<h1>Ofertas del Dia</h1>
@@ -15,8 +16,13 @@
 	      		</div>
 	      	</div>
 	    </form>
-			
+		
+		<p>
+      		{% saludar %}
+      	</p>
+
       	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
       		{% for p in productos %}
 	        	{% include "productos/includes/producto_card.html" %}
         	{% endfor %}

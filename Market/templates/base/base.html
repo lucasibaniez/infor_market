@@ -1,3 +1,5 @@
+{% load productos_tags %}
+
 <html lang="en"><head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +51,17 @@
 												<li class="nav-item">
 													<a class="nav-link" href="#">Catalogo</a>
 												</li>
+												{% get_categorias as todas_las_categorias %}
+												<div class="dropdown">
+												  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+												    Categorias
+												  </button>
+												  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+												  	{% for c in todas_las_categorias %}
+												  		<li><a class="dropdown-item" href="#">{{c.nombre}}</a></li>
+												  	{% endfor %}
+												  </ul>
+												</div>
 												{% if user.is_authenticated  %}
 													<li class="nav-item">
 														<a class="nav-link" href="{% url 'favoritos:mis_favoritos' %}">Mis Favoritos</a>

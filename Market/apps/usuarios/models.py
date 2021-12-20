@@ -19,7 +19,7 @@ class Usuario(AbstractUser):
 		favorito = Lista.objects.filter(usuario=self).first()
 
 		if favorito is None:
-			favorito = Lista.objects.create(usuario=request.user)
+			favorito = Lista.objects.create(usuario=self)
 
 		return favorito
 
