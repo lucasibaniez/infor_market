@@ -31,5 +31,10 @@ class Inicio(ListView):
 	model = Producto
 	context_object_name="productos"
 	
+	def get_context_data(self, **kwargs):
+		context = super(Inicio, self).get_context_data(**kwargs)
+		context["nombre_parametro"] = None
+		return context
+
 	def get_queryset(self):
 		return Producto.objects.filter(estado__in=[1,3])

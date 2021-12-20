@@ -18,7 +18,16 @@
 	    </form>
 		
 		<p>
-      		{% saludar %}
+			{% comment %}
+      			{% esto_es_un tag %}
+      		
+      		
+      			{% saludar_a_alguien "Lucas" %}
+
+      			{% saludar %}
+			{% endcomment %}
+			{{user.dni|agregar_sufijo:"asdads"}}
+      		
       	</p>
 
       	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
